@@ -1,0 +1,67 @@
+/* styles.css */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #333;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    text-align: center;
+}
+
+.gradient-border-button {
+    display: inline-block;
+    padding: 15px 30px;
+    color: #fff;
+    font-size: 1.2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border-radius: 5px;
+    position: relative;
+    background: #333;
+    z-index: 1;
+    overflow: hidden;
+    transition: color 0.4s ease, transform 0.4s ease;
+}
+
+.gradient-border-button::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #ff6347, #6a5acd, #1e90ff, #32cd32);
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(4px);
+    transition: opacity 0.4s ease;
+    border-radius: 5px;
+    animation: gradient-animation 6s infinite;
+}
+
+.gradient-border-button:hover {
+    color: #333;
+    transform: translateY(-10px); /* Floating effect */
+}
+
+.gradient-border-button:hover::before {
+    opacity: 1;
+}
+
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
